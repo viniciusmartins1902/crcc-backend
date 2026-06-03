@@ -7,6 +7,11 @@ if (!podePlanejar()) {
     exit;
 }
 
+function nomeMes(int $m): string {
+    return ['','Janeiro','Fevereiro','Março','Abril','Maio','Junho',
+            'Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'][$m] ?? '';
+}
+
 $supabase = new Supabase();
 $tenantId = DEFAULT_TENANT_ID;
 $flash    = ['tipo'=>'','msg'=>''];
@@ -122,7 +127,7 @@ $statusCor   = ['pendente'=>'secondary','em_andamento'=>'primary','concluida'=>'
 $meses = [];
 for ($i = -1; $i <= 5; $i++) {
     $ts = strtotime($mesAtual.'-01 '.$i.' month');
-    $meses[] = ['val'=>date('Y-m',$ts), 'label'=>ucfirst(strftime('%B %Y', $ts) ?: date('M/Y', $ts))];
+    $meses[] = ['val'=>date('Y-m',$ts), 'label'=>nomeMes((int)date('m',$ts)) . ' ' . date('Y',$ts)];
 }
 
 $titulo = 'Planejamento'; $paginaAtiva = 'planejamento';
@@ -168,7 +173,7 @@ $mesPrevTs = strtotime($mesAtual.'-01 -1 month');
 $mesNextTs = strtotime($mesAtual.'-01 +1 month');
 $mesPrev   = date('Y-m', $mesPrevTs);
 $mesNext   = date('Y-m', $mesNextTs);
-$mesLabel  = date('F Y', strtotime($mesAtual.'-01'));
+$mesLabel  = nomeMes((int)date('m', strtotime($mesAtual.'-01'))) . ' de ' . date('Y', strtotime($mesAtual.'-01'));
 ?>
 <div class="d-flex align-items-center gap-3 mb-4">
   <a href="?mes=<?=$mesPrev?>" class="btn btn-outline-secondary btn-sm rounded-pill"><i class="bi bi-chevron-left"></i></a>
