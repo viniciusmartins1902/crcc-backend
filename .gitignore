@@ -1,0 +1,7 @@
+.env
+*.log
+/cache/
+/sessions/
+/uploads/
+/tmp/
+.DS_Store
