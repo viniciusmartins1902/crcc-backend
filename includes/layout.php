@@ -149,6 +149,11 @@ $ini   = strtoupper(substr(trim($nome), 0, 1));
   <a href="/web/dashboard.php" class="sidebar-item <?= $paginaAtiva === 'dashboard' ? 'active' : '' ?>">
     <i class="bi bi-speedometer2"></i> Dashboard
   </a>
+  <?php if (podePlanejar()): ?>
+  <a href="/web/planejamento.php" class="sidebar-item <?= $paginaAtiva === 'planejamento' ? 'active' : '' ?>">
+    <i class="bi bi-calendar3"></i> Planejamento
+  </a>
+  <?php endif; ?>
   <a href="/web/atividades.php" class="sidebar-item <?= $paginaAtiva === 'atividades' ? 'active' : '' ?>">
     <i class="bi bi-clipboard-check"></i> Atividades / OS
   </a>
