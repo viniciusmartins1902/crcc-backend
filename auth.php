@@ -34,17 +34,3 @@ function verificarLogin(string $email, string $senha): bool {
     return true;
 }
 
-function estaLogado(): bool {
-    return !empty($_SESSION['logado']);
-}
-
-function requerLogin(): void {
-    if (!estaLogado()) {
-        header('Location: /web/login.php');
-        exit;
-    }
-}
-
-function nomeUsuario(): string {
-    return $_SESSION['nome'] ?? 'Usuário';
-}

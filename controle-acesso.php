@@ -47,9 +47,17 @@ function podeVerTudo(): bool {
     return getNivelAcesso() <= 2;
 }
 
+function estaLogado(): bool {
+    return !empty($_SESSION['logado']);
+}
+
 function requerLogin(): void {
-    if (empty($_SESSION['logado'])) {
+    if (!estaLogado()) {
         header('Location: /web/login.php');
         exit;
     }
+}
+
+function nomeUsuario(): string {
+    return $_SESSION['nome'] ?? 'Usuário';
 }
