@@ -4,7 +4,7 @@ require_once __DIR__ . '/../controle-acesso.php';
 ;
 
 requerLogin();
-ModuleManager::require('construtora');
+
 
 $kpis = [
     'aprovacao_inspecoes' => 96,

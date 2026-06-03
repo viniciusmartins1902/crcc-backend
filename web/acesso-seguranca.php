@@ -5,7 +5,7 @@ require_once __DIR__ . '/../supabase.php';
 ;
 
 requerLogin();
-ModuleManager::require('construtora');
+
 
 $nivel = getNivelAcesso();
 

@@ -10,7 +10,7 @@ require_once __DIR__ . '/../supabase.php';
 ;
 
 requerLogin();
-ModuleManager::require('construtora');
+
 
 $supabase   = new Supabase();
 $tenantId   = TenantManager::id();

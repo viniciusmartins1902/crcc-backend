@@ -4,7 +4,7 @@ require_once __DIR__ . '/../controle-acesso.php';
 ;
 
 requerLogin();
-ModuleManager::require('construtora');
+
 
 $kpis = [
     'dias_sem_afastamento' => 28,
